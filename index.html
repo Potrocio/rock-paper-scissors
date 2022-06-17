@@ -8,7 +8,31 @@
     <body>
       <script>
         "use strict"
-        
+        /*function game() {}
+        function displayScore() {
+          console.log("[Score] ",userScore + " " + computerScore)
+        }
+        function userInput() {}
+        function computerInput() {}
+        function declareRoundWinner() {}
+        function updateScore() {}
+
+        */
+        function game() {
+          let highestScore = 0;
+          let userScore = 0;
+          let computerScore = 0;
+          while (highestScore < 5) {
+            console.log("Would you like to choose Rock, Paper, or Scissors?")
+
+            displayScore()
+            userInput()
+            computerInput()
+            declareRoundWinner()
+            updateScore()
+          }
+        }
+
       </script>
     </body>
   </html>
