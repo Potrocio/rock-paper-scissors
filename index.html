@@ -8,31 +8,70 @@
     <body>
       <script>
         "use strict"
-        /*function game() {}
+        
         function displayScore() {
-          console.log("[Score] ",userScore + " " + computerScore)
+          console.log("[Score] User: ",userScore + "  Computer: " + computerScore)
         }
-        function userInput() {}
-        function computerInput() {}
+
+        function userInput() {
+          let userChoice = prompt().toLowerCase()
+          return userChoice
+        }
+
+        function checkUserInput() {
+          while (userChoice !== "rock" || "paper" || "scissors") {
+            if (userChoice === "reserved") {
+              userInput()
+            } else {
+              console.log("Invalid choice try again")
+              userInput()
+            }
+          }
+          return userChoice
+        }
+
+        function randomSingleNumber() {
+          let randomNumber = Math.random()
+          let randomNewNumber = randomNumber.toString()
+          return randomNewNumber[4]
+        }
+
+        function computerInput() {
+          randomSignleNumber()
+          if (randomNewNumber <= 6) {
+            if (randomNewNumber <=3) {
+              let computerChoice = "rock"
+            } else {
+              let computerChoice = "paper"
+            }
+          } else {
+            let computerChoice = "scissors"
+          }
+          return computerChoice
+        }
+
         function declareRoundWinner() {}
         function updateScore() {}
 
-        */
         function game() {
-          let highestScore = 0;
-          let userScore = 0;
-          let computerScore = 0;
+          const selectionChoice = ["rock", "paper", "scissors"]
+          let highestScore = 0
+          let userScore = 0
+          let computerScore = 0
           while (highestScore < 5) {
+            let userChoice = "reserved"
+            let computerChoice = "reserved"
             console.log("Would you like to choose Rock, Paper, or Scissors?")
 
             displayScore()
-            userInput()
+            checkUserInput()
             computerInput()
             declareRoundWinner()
             updateScore()
           }
         }
-
+        game()
       </script>
+    -->
     </body>
   </html>
