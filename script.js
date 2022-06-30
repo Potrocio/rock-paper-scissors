@@ -1,0 +1,129 @@
+"use strict"
+
+        function game() {
+          const selectionChoice = ["rock", "paper", "scissors"]
+          let userScore = 0
+          let computerScore = 0
+          let userChoice = "reserved"
+          let computerChoice = "reserved"
+          let roundWinner = "reserved"
+          let gameWinner = "reserved"
+
+          
+          function displayScore() {
+            console.log("[Score] User: ",userScore + "  Computer: " + computerScore)
+          }
+
+          function userInput() {
+            userChoice = prompt().toLowerCase()
+            return userChoice
+          }
+
+          function checkUserInput() {
+            while (userChoice !== "rock" && userChoice !=="paper" && userChoice !== "scissors") {
+              if (userChoice === "reserved") {
+                userInput()
+              } else {
+                console.log("Invalid choice try again")
+                userInput()
+              }
+            }
+            console.log("You: ", userChoice)
+            return userChoice
+          }
+
+          function computerInput() {
+            let randomNumber = Math.random()
+            let randomNewNumber = randomNumber.toString()
+            randomNewNumber = randomNewNumber[4]
+            if (randomNewNumber <= 6) {
+              if (randomNewNumber <=3) {
+                computerChoice = "rock"
+              } else {
+                computerChoice = "paper"
+              }
+            } else {
+              computerChoice = "scissors"
+            }
+            console.log("computer: ", computerChoice)
+            return computerChoice
+          }
+
+          function decideRoundWinner() {
+            if (userChoice === "rock") {
+              if (computerChoice === userChoice) {
+                roundWinner = "tied"
+              } else if (computerChoice === "paper") {
+                roundWinner = "computer"
+              } else if (computerChoice === "scissors") {
+                roundWinner = "user"
+              }
+            } else if (userChoice === "paper") {
+                if (computerChoice === userChoice) {
+                  roundWinner = "tied"
+                } else if (computerChoice === "scissors") {
+                  roundWinner = "computer"
+                } else if (computerChoice === "rock") {
+                  roundWinner = "user"
+                }
+            } else if (userChoice === "scissors") {
+                if (computerChoice === userChoice) {
+                  roundWinner = "tied"
+                } else if (computerChoice === "rock") {
+                  roundWinner = "computer"
+                } else if (computerChoice === "paper") {
+                  roundWinner = "user"
+                }
+            }
+            return roundWinner
+          }
+
+          function declareRoundWinner() {
+            if (roundWinner === "tied") {
+              console.log("This match was a tie")
+            } else {
+              console.log("The winner of this round is " + roundWinner)
+            }
+          }
+
+          function updateScore() {
+            if (roundWinner !== "tied") {
+              if (roundWinner === "user") {
+                userScore++
+                return userScore
+              } else {
+                computerScore++
+                return computerScore
+              }
+            }
+          }
+
+          function checkGameWinner() {
+            if (userScore == 5) {
+              gameWinner = "User"
+            } else if (computerScore == 5) {
+              gameWinner = "Computer"
+            }
+            return gameWinner
+          }
+
+          while (userScore !== 5 && computerScore !==5) {
+            userChoice = "reserved"
+            computerChoice = "reserved"
+            roundWinner = "reserved"
+            gameWinner = "reserved"
+            console.log("")
+            console.log("Would you like to choose Rock, Paper, or Scissors?")
+
+            displayScore()
+            checkUserInput()
+            computerInput()
+            decideRoundWinner()
+            declareRoundWinner()
+            updateScore()
+            checkGameWinner()
+          }
+          console.log("The winner is the " + gameWinner + " congratulations")
+        }
+        
+        game()
